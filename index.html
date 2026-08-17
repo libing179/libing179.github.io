@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bing Li | 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222;
+            line-height: 1.7;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 36px 24px;
+        }
+        .lang-bar{
+            text-align:right;
+            margin-bottom:12px;
+        }
+        .lang-btn{
+            border:1px solid #2b6cb0;
+            background:#fff;
+            color:#2b6cb0;
+            padding:4px 12px;
+            border-radius:4px;
+            cursor:pointer;
+            font-size:14px;
+            margin-left:6px;
+        }
+        .lang-btn.active{
+            background:#2b6cb0;
+            color:#fff;
+        }
+        .en-page{
+            display:none;
+        }
+        header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 22px;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            color: #111;
+        }
+        .contact {
+            margin-top:10px;
+            color:#444;
+            font-size:15px;
+        }
+        h2 {
+            font-size:21px;
+            margin:36px 0 16px;
+            color:#1a365d;
+            padding-bottom:6px;
+            border-bottom:1px solid #e2e8f0;
+        }
+        h3 {
+            font-size:17px;
+            margin:20px 0 10px;
+        }
+        p {
+            margin-bottom:12px;
+        }
+        ul {
+            padding-left:24px;
+            margin-bottom:14px;
+        }
+        li {
+            margin-bottom:8px;
+        }
+        .pub-item, .proj-item{
+            margin-bottom:24px;
+            padding:14px 16px;
+            background:#f8fafc;
+            border-radius:8px;
+        }
+        .badge {
+            display:inline-block;
+            background-color:#2b6cb0;
+            color:#fff;
+            font-size:13px;
+            padding:2px 8px;
+            border-radius:4px;
+            margin-right:8px;
+        }
+        .award-item{
+            margin-bottom:10px;
+        }
+        footer{
+            margin-top:70px;
+            padding-top:18px;
+            border-top:1px solid #eee;
+            font-size:14px;
+            color:#666;
+        }
+        a{
+            color:#2b6cb0;
+            text-decoration:none;
+        }
+        a:hover{
+            text-decoration:underline;
+        }
+        .sub-title {
+            font-weight:bold;
+            color:#2d3748;
+        }
+    </style>
+</head>
+<body>
+<div class="lang-bar">
+    <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
+    <button class="lang-btn" onclick="switchLang('en')">English</button>
+</div>
+
+<!-- ========== 中文页面 ========== -->
+<div class="zh-page">
+<header>
+    <h1>李冰</h1>
+    <div class="contact">
+        软件工程本科生<br>
+        邮箱：libing@mails.qust.edu.cn &nbsp;|&nbsp; 手机：18462129793 &nbsp;|&nbsp; 籍贯：山东济宁
+    </div>
+</header>
+
+<section>
+    <h2>📚 教育背景</h2>
+    <div>
+        <h3>青岛科技大学｜信息科学技术学院 软件工程专业 &nbsp; 2023.09‑至今</h3>
+        <ul>
+            <li>GPA：4.14/5.0，专业排名 <b>1/87</b>，具备推免资格</li>
+            <li>核心课程：数据结构与算法分析96、操作系统原理96、C语言97、计算机组成95、离散数学95、概率论94、计算机网络92、软件工程92</li>
+            <li>英语：已通过英语四六级</li>
+            <li>荣誉：校一等奖学金3次、学业优秀奖学金1次、社会实践奖学金2次、优秀共青团员、连续两年获评校优秀学生</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>🔬 研究方向</h2>
+    <p>多模态学习、跨模态图文检索、噪声鲁棒对比学习；大模型生成内容检测；计算机视觉在无障碍医疗场景落地；图像超分辨率重建</p>
+</section>
+
+<section>
+    <h2>📄 学术论文</h2>
+    <div class="pub-item">
+        <span class="badge">CCF‑C</span>
+        <b>NPCL: Negative‑Preserving Contrastive Learning under Noisy Correspondence</b>
+        <span>[<a href="./npcl.pdf" target="_blank">PDF</a>]</span>
+        <br>
+        <b>李冰</b>（第一作者）, Jiaqi Xue, Hongji Sun<br>
+        <i>ICPR 2026 (已录用)</i>
+        <ul>
+            <li><span class="sub-title">研究背景：</span>互联网采集图文数据集普遍存在噪声配对问题，错误匹配图文被当作正样本训练，严重降低跨模态检索性能。（1）现有方法大多侧重过滤、降权噪声样本，忽略负样本监督作用，高噪声场景下判别能力退化严重。（2）现有方法的样本分区依赖伪标签细化或不确定性建模，本质上从正样本对出发来判断匹配可靠性。但高噪声下正样本本身已被污染，导致分区错误，且错误在后续优化中持续放大，形成恶性循环。（3）分类中的噪声标签学习不适用于检索噪声对应，因为噪声对应代表由成对关系而不是显式标签产生的实例级噪声。</li>
+            <li><span class="sub-title">核心创新：</span>提出NPCL噪声保留型对比学习框架。①多视图特征聚合双向跨模态证据提取器；②基于狄利克雷分布联合估计匹配置信度与不确定性，实现样本自动划分干净/噪声集合；③设计噪声感知增强负样本对比损失、噪声解耦对比损失，抑制噪声正样本干扰同时完整保留负样本判别信息。</li>
+            <li><span class="sub-title">实验：</span>在Flickr30K、MS‑COCO‑1K数据集，设置20%/50%/70%梯度噪声比例；相比NCR、DECL、UGNCL等SOTA方法，rSum综合检索指标持续领先，尤其70%极端噪声条件下模型性能衰减显著更小，验证方法的噪声鲁棒性。</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>🧪 科研项目</h2>
+
+    <div class="proj-item">
+        <h3>国家级大创｜VisAssist 基于多模态深度学习的视障人士实时场景感知助手｜项目第一负责人 2025.05‑2026.02</h3>
+        <ul>
+            <li><span class="sub-title">研究背景：</span>现有视障辅助设备多局限单物体识别，缺少复杂场景语义解析；交互依赖按键/语音指令，学习成本高。目标构建手势触发‑场景截取‑语音反馈闭环的无障碍感知系统。</li>
+            <li><span class="sub-title">核心技术：</span>①手势交互模块：YOLOv8s‑MediaPipe手部关键点检测，改进欧氏距离+时序滑动窗口实现动态手势判定；旋转矩形优化+U²‑Net语义感知取景，弹性边界保护算法；②场景理解模块：ViT图像编码、Efficient‑SAM语义分割生成四通道增强图像；HDBSCAN特征聚类；基于PPO强化学习的Transformer解码器生成场景描述文本；③工程实现：Jetson Nano硬件端、ESP32‑S3协处理器；WebSocket+Protobuf实现低时延通信；微信小程序前端；科大讯飞AIUI离线语音交互。</li>
+            <li><span class="sub-title">项目产出：</span>国家级大学生创新训练项目优秀结项；软件著作权《视障用户实时环境识别与交互系统》（第一著作权人）；完成硬件原型与小程序完整可运行原型系统。</li>
+        </ul>
+    </div>
+
+    <div class="proj-item">
+        <h3>CVPR 2025 NTIRE 光场图像超分辨率挑战赛｜队伍队长 2025.02‑2025.03</h3>
+        <ul>
+            <li><span class="sub-title">任务背景：</span>光场图像超分辨率，需要同时恢复空间纹理与多视角视差信息，传统方法容易引入伪影、视角不一致问题。</li>
+            <li><span class="sub-title">技术方案：</span>改进TriFormer三分支网络；高频HighMixer双路分支负责纹理细节恢复；低频ConvFormer分支保留结构信息；FreBlock频域分支做多视角交互对齐；多级渐进特征融合策略，缓解重建伪影。</li>
+            <li><span class="sub-title">竞赛结果：</span>测试集PSNR=30.57dB，SSIM=0.927，获得赛道全球第18名。</li>
+        </ul>
+    </div>
+
+    <div class="proj-item">
+        <h3>Anti‑AIGC：基于集成学习的多模态AI生成内容检测平台｜核心成员 2024.06‑2025.04</h3>
+        <ul>
+            <li><span class="sub-title">研究背景：</span>现有AIGC检测工具大多只支持文本检测，缺少图像、视频多模态一体化检测；短文本、复杂生成样本泛化能力不足。目标实现文本‑图像‑视频多模态AI生成内容鉴别平台。</li>
+            <li><span class="sub-title">核心技术：</span>文本分支：LoRA‑Adapter微调DeBERTa‑V3‑Large，多尺度XML‑RoBERTa模型，集成学习策略；图像分支：深度双线性卷积网络、视觉‑语言多任务场景分类框架、动态损失调整；视频分支：网格片段采样、片段注意力网络，美学‑技术双分支感知；堆叠集成学习融合多路模型输出。</li>
+            <li><span class="sub-title">项目产出：</span>完成Web前端平台原型；SemEval‑2024 AI生成文本检测任务全球第8名；申请软件著作权1项。</li>
+        </ul>
+    </div>
+
+    <div class="proj-item">
+        <h3>智穴舌影：AI赋能的穴位与舌象中医诊疗系统｜核心成员 2024.10‑2025.01</h3>
+        <ul>
+            <li><span class="sub-title">研究背景：</span>传统中医望诊主观性强、缺少客观量化手段；将计算机视觉、知识图谱引入中医舌诊与穴位辅助问诊。</li>
+            <li><span class="sub-title">核心技术：</span>①穴位定位：MediaPipe面部/手部关键点检测，计算关键点与穴位欧氏距离实现穴位标注；②舌象处理：Gamma亮度矫正、Harris角点检测做歪斜舌体校正；Pool‑Unet舌体分割；K‑means聚类实现苔质‑舌质分离；ResNet50完成舌色、苔色、舌形分类；③知识图谱：Neo4j构建中医知识图谱，实体包含病症、食疗、理疗、方剂；BERT实现实体识别，关键词匹配完成辨证论治，输出食疗、理疗建议；④微信小程序完整系统实现。</li>
+            <li><span class="sub-title">项目产出：</span>第十八届中国大学生计算机设计大赛省级二等奖；完成小程序原型系统。</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>🏆 竞赛获奖</h2>
+    <div class="award-item">• MathorCup高校数学建模挑战赛 &nbsp; 国家级二等奖（队长） 2025.03</div>
+    <div class="award-item">• 第七届全球校园人工智能算法精英大赛 &nbsp; 国家级二等奖 2025.12</div>
+    <div class="award-item">• 第七届全球校园人工智能算法精英大赛 &nbsp; 国家级优秀奖（队长） 2025.12</div>
+    <div class="award-item">• 蓝桥杯数字创新赛 &nbsp; 国家级三等奖（队长） 2026.05</div>
+    <div class="award-item">• 第二十七届中国机器人及人工智能大赛 &nbsp; 省级二等奖（队长） 2025.07</div>
+    <div class="award-item">• 第18届中国大学生计算机设计大赛 &nbsp; 省级二等奖（队长） 2025.08</div>
+</section>
+
+<section>
+    <h2>🎯 读研规划</h2>
+    <p>研究生阶段希望深耕<strong>多模态学习、计算机视觉</strong>方向。一方面夯实深度学习、对比学习理论基础，持续跟进多模态大模型、鲁棒学习前沿文献；另一方面面向噪声、不完全真实场景，挖掘实际科研问题。计划从理论算法创新+工程实现两个维度开展工作，期望在导师指导下产出高质量学术成果，同时注重模型落地与系统能力锻炼，成长为理论与工程兼备的研究型人才。</p>
+</section>
+
+<footer>
+    更新时间：2026‑08
+</footer>
+</div>
+
+
+<!-- ========== English 英文页面 ========== -->
+<div class="en-page">
+<header>
+    <h1>Bing Li</h1>
+    <div class="contact">
+        Undergraduate, Software Engineering<br>
+        Email：libing@mails.qust.edu.cn &nbsp;|&nbsp; Mobile：18462129793 &nbsp;|&nbsp; Hometown：Jining, Shandong
+    </div>
+</header>
+
+<section>
+    <h2>📚 Education</h2>
+    <div>
+        <h3>Qingdao University of Science and Technology | School of Information Science and Technology, Software Engineering &nbsp; 2023.09‑Present</h3>
+        <ul>
+            <li>GPA: 4.14/5.0, <b>Rank 1 / 87</b>, eligible for postgraduate recommendation</li>
+            <li>Core Courses: Data Structures and Algorithms 96, Operating Systems 96, C‑Programming 97, Computer Organization 95, Discrete Mathematics 95, Probability Theory 94, Computer Networks 92, Software Engineering 92</li>
+            <li>Language: CET‑4 & CET‑6 passed</li>
+            <li>Honors: First‑class Scholarship (3 times), Academic Excellence Scholarship, Social Practice Scholarship, Excellent League Member, Outstanding Student for two consecutive years</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>🔬 Research Interests</h2>
+    <p>Multimodal Learning, Cross‑Modal Text‑Image Retrieval, Noise‑Robust Contrastive Learning; AI‑Generated Content Detection; Computer Vision for Accessible & Medical Applications; Image Super‑Resolution.</p>
+</section>
+
+<section>
+    <h2>📄 Publications</h2>
+    <div class="pub-item">
+        <span class="badge">CCF‑C</span>
+        <b>NPCL: Negative‑Preserving Contrastive Learning under Noisy Correspondence</b>
+        <span>[<a href="./npcl.pdf" target="_blank">PDF</a>]</span>
+        <br>
+        <b>Bing Li</b> (First Author), Jiaqi Xue, Hongji Sun<br>
+        <i>ICPR 2026 (Accepted)</i>
+        <ul>
+            <li><span class="sub-title">Background:</span> Web‑collected image‑text datasets suffer from noisy correspondence, where mismatched pairs are treated as positives and degrade retrieval performance. Existing works mainly suppress noisy samples while ignoring supervision from negative samples, leading to severe performance drop under high‑noise regimes. Sample partition methods rely on noisy positive pairs themselves, creating cascading errors. Noise‑label learning for classification cannot be directly adapted for pairwise retrieval noise.</li>
+            <li><span class="sub-title">Contributions:</span> We propose NPCL, a negative‑preserving contrastive learning framework. ① Multi‑view bidirectional cross‑modal evidence extractor; ② Dirichlet‑distribution to jointly estimate matching confidence & uncertainty for clean/noisy sample partition; ③ Noise‑aware negative‑enhanced contrastive loss and noise‑decoupled contrastive loss to suppress noisy positives while preserving discriminative negative signals.</li>
+            <li><span class="sub-title">Experiments:</span> Evaluated on Flickr30K, MS‑COCO‑1K under 20% / 50% /70% noise ratios. Our method outperforms SOTA approaches (NCR, DECL, UGNCL) in overall rSum metric, showing strong robustness especially under extreme 70% noise setting.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>🧪 Research Projects</h2>
+
+    <div class="proj-item">
+        <h3>National College Innovation Training Program | VisAssist: Multimodal Scene‑Perception Assistant for Visually‑Impaired People | Project Lead &nbsp; 2025.05‑2026.02</h3>
+        <ul>
+            <li><span class="sub-title">Background:</span> Existing assistive devices only support isolated object recognition, lacking complex scene understanding; they rely on physical buttons or voice commands with high learning cost. We build a closed‑loop system: gesture trigger → scene capture → speech feedback.</li>
+            <li><span class="sub-title">Techniques:</span> ① Gesture interaction: YOLOv8s‑MediaPipe hand keypoint detection, improved Euclidean distance + temporal sliding window for dynamic gesture judgement; rotated‑rectangle optimization, U²‑Net semantic‑aware viewfinder, elastic boundary protection. ② Scene understanding: ViT encoder, Efficient‑SAM for semantic segmentation to generate 4‑channel enhanced image; HDBSCAN clustering; PPO‑optimized Transformer decoder for scene caption generation. ③ Engineering: Jetson‑Nano, ESP32‑S3 co‑processor; WebSocket+Protobuf low‑latency communication; WeChat Mini‑Program frontend; offline speech interaction via iFlytek AIUI.</li>
+            <li><span class="sub-title">Deliverables:</span> Excellent‑rated completion of national innovation project; Software Copyright; fully functional hardware & mini‑program prototype.</li>
+        </ul>
+    </div>
+
+    <div class="proj-item">
+        <h3>CVPR 2025 NTIRE Light‑Field Image Super‑Resolution Challenge | Team Captain &nbsp; 2025.02‑2025.03</h3>
+        <ul>
+            <li><span class="sub-title">Background:</span> Light‑field super‑resolution needs to restore spatial texture as well as multi‑view parallax; conventional methods produce artifacts and view inconsistency.</li>
+            <li><span class="sub-title">Techniques:</span> Improved TriFormer three‑branch architecture: High‑Mixer branch for texture recovery; ConvFormer for structural preservation; FreBlock frequency‑domain module for multi‑view alignment; multi‑stage feature fusion to mitigate reconstruction artifacts.</li>
+            <li><span class="sub-title">Result:</span> PSNR=30.57dB, SSIM=0.927, global rank 18 in the competition track.</li>
+        </ul>
+    </div>
+
+    <div class="proj-item">
+        <h3>Anti‑AIGC: Multimodal AI‑Generated Content Detection Platform | Core Member &nbsp; 2024.06‑2025.04</h3>
+        <ul>
+            <li><span class="sub-title">Background:</span> Most AIGC detectors focus only on text; lack unified text‑image‑video multimodal solution; weak generalization on short samples.</li>
+            <li><span class="sub-title">Techniques:</span> Text branch: LoRA‑Adapter fine‑tuned DeBERTa‑V3‑Large, multi‑scale XML‑RoBERTa, ensemble learning. Image branch: deep bilinear CNN, vision‑language multi‑task framework with dynamic loss adjustment. Video branch: grid fragment sampling, fragment‑attention network, aesthetics‑technology dual‑branch perception. Stacked ensemble for final prediction.</li>
+            <li><span class="sub-title">Deliverables:</span> Web prototype; Rank‑8 globally in SemEval‑2024 AIGC text detection task; one software copyright application.</li>
+        </ul>
+    </div>
+
+    <div class="proj-item">
+        <h3>Acupoint & Tongue‑Diagnosis TCM Assistant | Core Member &nbsp; 2024.10‑2025.01</h3>
+        <ul>
+            <li><span class="sub-title">Background:</span> Traditional TCM tongue diagnosis suffers from subjective judgement. We introduce computer vision and knowledge graph for objective auxiliary diagnosis.</li>
+            <li><span class="sub-title">Techniques:</span> ① Acupoint localization: MediaPipe face/hand keypoint detection, Euclidean‑distance‑based acupoint annotation. ② Tongue image pipeline: Gamma correction, Harris corner‑based skew rectification; Pool‑Unet segmentation; K‑means for tongue coating / body separation; ResNet50 for tongue feature classification. ③ Neo4j TCM knowledge graph, BERT entity recognition, keyword matching for syndrome differentiation; implemented as WeChat Mini‑Program.</li>
+            <li><span class="sub-title">Deliverables:</span> Provincial Second Prize, 18th China University Computer Design Competition; working mini‑program prototype.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>🏆 Awards</h2>
+    <div class="award-item">• MathorCup Mathematical Modeling Contest &nbsp; National Second Prize (Team Captain) 2025.03</div>
+    <div class="award-item">• 7th Global Campus AI Algorithm Elite Competition &nbsp; National Second Prize 2025.12</div>
+    <div class="award-item">• 7th Global Campus AI Algorithm Elite Competition &nbsp; National Honorable Mention (Captain) 2025.12</div>
+    <div class="award-item">• Lanqiao Digital Innovation Challenge &nbsp; National Third Prize (Captain) 2026.05</div>
+    <div class="award-item">• 27th China Robot and AI Competition &nbsp; Provincial Second Prize (Captain) 2025.07</div>
+    <div class="award-item">• 18th China University Computer Design Competition &nbsp; Provincial Second Prize (Captain) 2025.08</div>
+</section>
+
+<section>
+    <h2>🎯 Future Study Plan</h2>
+    <p>I intend to pursue postgraduate research on <strong>multimodal learning and computer vision</strong>. I will strengthen theoretical foundations of deep learning and contrastive learning, follow state‑of‑the‑art works on multimodal large‑models and robust learning. I aim to explore practical research problems under noisy / imperfect real‑world conditions. I plan to conduct both algorithm innovation and system engineering work, produce high‑quality research outputs under supervisor guidance, and grow into a researcher balanced between theory and practice.</p>
+</section>
+
+<footer>
+    Last updated: 2026‑08
+</footer>
+</div>
+
+<script>
+const zhDom = document.querySelector('.zh-page');
+const enDom = document.querySelector('.en-page');
+const btns = document.querySelectorAll('.lang-btn');
+
+function switchLang(lang){
+    if(lang === 'zh'){
+        zhDom.style.display='block';
+        enDom.style.display='none';
+        btns[0].classList.add('active');
+        btns[1].classList.remove('active');
+        document.title="李冰 | 个人主页";
+    }else{
+        zhDom.style.display='none';
+        enDom.style.display='block';
+        btns[1].classList.add('active');
+        btns[0].classList.remove('active');
+        document.title="Bing Li | Homepage";
+    }
+}
+</script>
+</body>
+</html>
